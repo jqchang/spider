@@ -80,7 +80,7 @@ module.exports = {
         json.title = title;
         if(title !== ""){
             // console.log(json);
-            News.create({title: title, url: link, date:date}, function(err, result){
+            News.create({title: title, url: link, date:date, company:"Apple"}, function(err, result){
               console.log(result);
             })
         }

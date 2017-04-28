@@ -7,6 +7,7 @@ myApp.factory('newsFactory', function($http){
     // console.log(`/news/${company}`)
 
   $http.get(`/news/${company}`).then(function(data){
+    console.log(data);
     callback(data);
   })
   }
