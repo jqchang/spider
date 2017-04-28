@@ -22,6 +22,17 @@ module.exports = function(app){
     jobs.showSynopsys(req,res);
   })
 
+  app.get('/scrape/synopsis', function(req, res){
+    // console.log('getting all jobs from facebook');
+    // redirect for alexa sound-alike error
+    jobs.scrapeSynopsys(req,res);
+  })
+
+  app.get('/jobs/synopsis', function(req,res){
+    // redirect for alexa sound-alike error
+    jobs.showSynopsys(req,res);
+  })
+
 
   app.get('/scrape/facebook', function(req, res){
     // console.log('getting all jobs from facebook');
