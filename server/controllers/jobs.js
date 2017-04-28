@@ -22,7 +22,7 @@ request(link, function(error, response, body) {
 }
 
 module.exports = {
-  scrapeSynopsis: function(req, res) {
+  scrapeSynopsys: function(req, res) {
     var jobs = []
     request("https://sjobs.brassring.com/TGWebHost/home.aspx?partnerid=25235&siteid=5359", function(error, response, body) {
       if(error) {
@@ -54,7 +54,7 @@ module.exports = {
                 json.url = 'https://sjobs.brassring.com/TGWebHost/' + jobtitle.slice(start,end);
 
                 jobs.push(json)
-                Job.create({company: "Synopsis", title: title, url: json.url, location: joblocation, last_updated:jobdate }, function(err,result){
+                Job.create({company: "Synopsys", title: title, url: json.url, location: joblocation, last_updated:jobdate }, function(err,result){
                   console.log(result)
                 })
             }
@@ -65,9 +65,9 @@ module.exports = {
   },
 
 
-  showSynopsis: function(req,res){
+  showSynopsys: function(req,res){
 
-      Job.find({company: "Synopsis"}, function(err,result){
+      Job.find({company: "Synopsys"}, function(err,result){
         if(err){
           res.json({msg: "error"})
         } else {
@@ -100,11 +100,35 @@ module.exports = {
         // linkrun(link, json, title);
       });
     });
+  },
 
 
-
-
-  }
-
-
+  // scrapeApple: function( function(req, res){
+  //
+  //   request('https://jobs.apple.com/us/search?#&t=0&sb=req_open_dt&so=1&lo=0', function(error, response, html){
+  //     if(!error){
+  //       var $ = cheerio.load(html);
+  //
+  //       var title, release, rating;
+  //       var json = { title : "", release : "", rating : ""};
+  //       console.log($('#title'));
+  //       $('#resultswrap rounded').filter(function(){
+  //         var data = $(this);
+  //         // title = data.children().first().text();
+  //         // release = data.children().last().children().text();
+  //         //
+  //         // json.title = title;
+  //         // json.release = release;
+  //       })
+  //
+  //       $('.star-box-giga-star').filter(function(){
+  //         var data = $(this);
+  //         // rating = data.text();
+  //         //
+  //         // json.rating = rating;
+  //       })
+  //     }
+  //
+  //   }) ;
+  // }),
 }

@@ -5,14 +5,17 @@ myApp.config(function ($routeProvider) {
     .when('/',{
         templateUrl: 'partials/home.html',
     })
-    .when('/synopsis',{
-        templateUrl: 'partials/synopsis.html',
+    .when('/synopsys',{
+        templateUrl: 'partials/synopsys.html',
     })
     .when('/symantec',{
       // templateUrl: 'partials/products.html',
     })
     .when('/apple',{
       templateUrl: 'partials/apple.html'
+    })
+    .when('/google',{
+      templateUrl: 'partials/google.html'
     })
     .otherwise({
       redirectTo: '/'

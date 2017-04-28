@@ -13,13 +13,13 @@ module.exports = function(app){
     res.sendFile('index.html', {root: __dirname + './../../client'});
   })
 
-  app.get('/scrape/synopsis', function(req, res){
+  app.get('/scrape/synopsys', function(req, res){
     // console.log('getting all jobs from facebook');
-    jobs.scrapeSynopsis(req,res);
+    jobs.scrapeSynopsys(req,res);
   })
 
-  app.get('/jobs/synopsis', function(req,res){
-    jobs.showSynopsis(req,res);
+  app.get('/jobs/synopsys', function(req,res){
+    jobs.showSynopsys(req,res);
   })
 
 
@@ -42,6 +42,14 @@ module.exports = function(app){
     news.showApple(req,res);
   })
 
+  app.get('/scrape/news/google', function(req, res){
+    // console.log('getting all jobs from facebook');
+    news.scrapeGoogle(req,res);
+  })
+  app.get('/news/google', function(req, res){
+    // console.log('getting all jobs from facebook');
+    news.showGoogle(req,res);
+  })
   //
   // app.post('/products', function(req,res){
   //   console.log('creating new product', req.body)
